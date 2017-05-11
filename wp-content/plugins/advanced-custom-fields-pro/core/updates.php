@@ -314,6 +314,10 @@ class acf_updates {
 		$plugin = false;
 		
 		
+		// only for 'plugin_information' action
+		if( $action !== 'plugin_information' ) return $result;
+		
+		
 		// find plugin via slug
 		foreach( $this->plugins as $p ) {
 			

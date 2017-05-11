@@ -37,7 +37,7 @@ class CSS
         $css
         ->register('style')
         ->setUrl(THEME_URL . '/style.css')
-        ->setVersion('1.0.2')
+        ->setVersion('1.0.3')
         ->enqueue();
 
         $css

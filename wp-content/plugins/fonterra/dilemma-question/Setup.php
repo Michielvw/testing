@@ -19,6 +19,7 @@ class Setup
         add_action('manage_dilemmaquestion_posts_custom_column', [$this, 'custom_columns_dilemma'], 10, 2);
         add_filter('manage_dilemmaquestion_posts_columns', [$this, 'custom_columns_head']);
         add_action('manage_edit-dilemmaquestion_sortable_columns', [$this, 'activitySortColumns']);
+        add_action('pre_get_posts', [$this, 'my_pre_get_posts']);
     }
 
 
@@ -80,6 +81,29 @@ class Setup
 		$columns['mydate']  = 'mydate';
 
 		return $columns;
+	}
+    public function my_pre_get_posts( $query ) {
+		$orderby = $query->get('orderby');
+		$order   = $query->get('order');
+
+		if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'dilemmaquestion' && $orderby == 'level' && $order == 'asc') {
+			$query->set('orderby', 'meta_value');
+			$query->set('meta_key', 'level_id');
+			$query->set('order', 'ASC');
+		} else if( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'dilemmaquestion' && $orderby == 'level' && $order == 'desc') {
+			$query->set('orderby', 'meta_value');
+			$query->set('meta_key', 'level_id');
+			$query->set('order', 'DESC');
+		} else if( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'dilemmaquestion' && $orderby == 'order' && $order == 'desc') {
+			$query->set('orderby', 'meta_value');
+			$query->set('meta_key', 'order');
+			$query->set('order', 'DESC');
+        } else if( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'dilemmaquestion' && $orderby == 'order' && $order == 'asc') {
+			$query->set('orderby', 'meta_value');
+			$query->set('meta_key', 'order');
+			$query->set('order', 'ASC');
+        }
+		return $query;
 	}
 // end custom colomn admin
 

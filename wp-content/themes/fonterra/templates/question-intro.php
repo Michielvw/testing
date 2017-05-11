@@ -46,7 +46,8 @@ if($answers_num >= 8)
     update_post_meta($game_data->ID, 'current_level', $current_level + 1);
     update_post_meta($game_data->ID, 'current_level_id', $terms[0]->term_id);
 
-    // $game_data = get_game_data();
+    wp_redirect(site_url('level-intro'));
+    exit;
 }
 
 $args = array(

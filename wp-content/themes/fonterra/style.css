@@ -229,6 +229,10 @@ body {
     overflow-x: hidden;
 }
 
+.container.question-page {
+    overflow-x: hidden;
+}
+
 .question-page .content-container {
     width: 50%;
     padding-right: 30px;
@@ -521,10 +525,8 @@ input[type=radio]:checked ~ label{
 .btn {
     font-size: 100%;
     font-weight: 700;
-    padding: 15px 30px;
     background: #54C227;
     display: inline-block;
-    border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
     color: white;
@@ -533,7 +535,10 @@ input[type=radio]:checked ~ label{
     border: none;
     border-radius: 7px;
     padding: 8px 20px;
+    -webkit-appearance: none;
+    appearance: none;
 }
+
 
 .homepage .btn {
     box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
@@ -894,14 +899,15 @@ span.ovrl-box-right-score {
   z-index: 0;
   position: absolute;
   right: 0;
+  transition: all .2s ease-in-out;
 }
 .mobile-nav ul {
   width: 100%;
   margin: 0px;
   padding: 0px;
-  transform: translate(0, -300px);
-  -ms-transform: translate(0, -300px);
+  /*-ms-transform: translate(0, 0px);
   -webkit-transform: translate(0px, 0px);
+  transform: translate(0, 0px);*/
   transition: all .2s ease-in-out;
    position: absolute;
 }
@@ -920,10 +926,13 @@ span.ovrl-box-right-score {
   background: maroon;
 }
 
-.mobile-nav.show-mobile-nav ul {
-  transform: translate(0px);
-  -ms-transform: translate(0px);
+.mobile-nav.show-mobile-nav {
+  right: 190px;
+  transition: all .2s ease-in-out;
+  /*-ms-transform: translate(-190px);
   -webkit-transform: translate(-190px);
+  transform: translate(-190px);
+    transition: all .2s ease-in-out;*/
 }
 
 .main-container {
@@ -958,6 +967,10 @@ span.ovrl-box-right-score {
 .level-intro .full-side {
   background-image: none;
   background-color: rgba(230, 33, 41, 0.3);
+}
+
+.container.level-intro {
+    overflow-x: hidden;
 }
 
 .homepage .content-container {
