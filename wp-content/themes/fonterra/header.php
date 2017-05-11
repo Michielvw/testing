@@ -1,3 +1,6 @@
+<?php
+global $game_data;
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
     <head>
@@ -13,7 +16,15 @@
          $background_image = '';
      }
     else {
-        $background_image = THEME_URL.'/assets/images/bg1.jpg';
+        $level_bg = get_field('background_image', 'level_'.$game_data->current_level_id);
+        if( ! empty($level_bg['url']))
+        {
+            $background_image = $level_bg['url'];
+        }
+        else
+        {
+            $background_image = THEME_URL.'/assets/images/bg1.jpg';
+        }
     }
     ?>
 <body style="background-image: url('<?=$background_image?>');">

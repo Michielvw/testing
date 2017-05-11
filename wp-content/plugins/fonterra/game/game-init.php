@@ -87,7 +87,7 @@ function save_game_answer()
 				{
 					/*// update overall_score
 					$overall_score = get_post_meta($game_data->ID, 'overall_score', TRUE);
-					$overall_score = (int)$overall_score + 1;
+					$overall_score = (int)$overall_score + 2;
 					update_post_meta($game_data->ID, 'overall_score', $overall_score);*/
 
 					// update the currentlevel points
